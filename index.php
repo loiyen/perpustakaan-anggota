@@ -53,6 +53,16 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
+
+	$host = $_SERVER['HTTP_HOST'];
+$explodedDomain = explode(".", $host);
+$subdomain = $explodedDomain[0];
+
+if ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == 'anggota-library.test') {
+	$env = 'development';
+} else {
+	$env = 'production';
+}
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
